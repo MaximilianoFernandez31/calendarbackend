@@ -34,6 +34,11 @@ app.use("/api/auth", require("./routes/auth")); //todo lo que exporte routes/aut
 app.use("/api/events", require("./routes/events"))
 
 
+app.get("*", (req, res) => {
+        res.sendFile(__dirname + "/public/index.html")
+})
+
+
 //Escuchar peticiones
 app.listen(process.env.PORT, () => {//reemplazamos el puerto por process.env de donde sacamos PORT de  env
     console.log(`Servidor corriendo en puerto ${process.env.PORT}`)
